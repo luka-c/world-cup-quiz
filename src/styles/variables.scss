@@ -1,0 +1,18 @@
+$breakpoint-small: 600px;
+$breakpoint-medium: 800px;
+$breakpoint-large: 1440px;
+
+:root {
+  --space-base: 0.25rem; /* 4px */
+  --space-xs: 0.5rem; /* 8px */
+  --space-sm: 1rem; /* 16px */
+  --space-md: 1.5rem; /* 24px */
+  --space-lg: 3rem; /* 48px */
+  --space-xl: 4rem; /* 64px */
+
+  --gutter: 1.25rem; /* 20px */
+
+  --border-width: 3px;
+  --offset-shadow: 4px;
+  --radius: 0px;
+}
