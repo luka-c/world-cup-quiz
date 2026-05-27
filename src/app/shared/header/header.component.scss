@@ -1,0 +1,22 @@
+@use "styles" as s;
+
+:host {
+	display: block;
+	border-bottom: 1px solid var(--clr-border);
+}
+
+nav {
+	max-width: s.$breakpoint-large;
+	margin-inline: auto;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+nav > ul {
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: var(--space-xs);
+}
