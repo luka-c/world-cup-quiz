@@ -1,1 +1,22 @@
-<p>footer works!</p>
+<footer>
+	<section class="title">
+		<app-name />
+		<span>© 2026 {{ appName }}. ALL RIGHTS RESERVED.</span>
+	</section>
+	<section class="links">
+		<h3>Poveznice</h3>
+		<ul>
+			@for (route of footerRoutes; track $index) {
+				<li>
+					<a [routerLink]="route.path">
+						{{ route.title }}
+					</a>
+				</li>
+			}
+		</ul>
+	</section>
+	<section class="credits">
+		<h3>Zasluge</h3>
+		<a href="https://www.flaticon.com/free-icons/world-cup">Icons by BankSeeNgern</a>
+	</section>
+</footer>
