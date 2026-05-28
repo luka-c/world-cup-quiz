@@ -1,96 +1,118 @@
 @font-face {
-  font-family: 'BricolageGrotesque';
-  src: url(/fonts/BricolageGrotesque.ttf) format('truetype');
-  font-weight: 200 800;
-  font-style: normal;
-  font-display: swap;
+	font-family: "BricolageGrotesque";
+	src: url(/fonts/BricolageGrotesque.ttf) format("truetype");
+	font-weight: 200 800;
+	font-style: normal;
+	font-display: swap;
 }
 
 @mixin default-font {
-  font-family: 'BricolageGrotesque', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.21;
+	font-family: "BricolageGrotesque", sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1rem;
+	line-height: 1.21;
+}
+
+@font-face {
+	font-family: "Blocky";
+	src: url(/fonts/blocky-circle.ttf) format("truetype");
+	font-style: normal;
+	font-display: swap;
+}
+
+@mixin blocky-font {
+	font-family: "Blocky";
 }
 
 :root {
-  /* Font Sizes */
-  --size-h-lg: 2.5rem;
-  --size-h-reg: 2rem;
-  --size-h-sm: 1.5rem;
+	/* Font Sizes */
+	--size-h-lg: 2.5rem;
+	--size-h-reg: 2rem;
+	--size-h-sm: 1.5rem;
 
-  --size-b-lg: 1.125rem;
-  --size-b-reg: 1rem;
-  --size-b-sm: 0.875rem;
+	--size-b-lg: 1.125rem;
+	--size-b-reg: 1rem;
+	--size-b-sm: 0.875rem;
 
-  --size-l-lg: 0.875rem;
-  --size-l-reg: 0.75rem;
-  --size-l-sm: 0.6875rem;
+	--size-l-lg: 0.875rem;
+	--size-l-reg: 0.75rem;
+	--size-l-sm: 0.6875rem;
 
-  /* Line Heights */
-  --lh-tight: 1.2;
-  --lh-normal: 1.5;
-  --lh-loose: 1.6;
+	/* Line Heights */
+	--lh-tight: 1.2;
+	--lh-normal: 1.5;
+	--lh-loose: 1.6;
 }
 
 body {
-  @include default-font;
+	@include default-font;
 }
 
-/* Headline Styles */
-h1,
-.h-large {
-  font-size: var(--size-h-lg);
-  line-height: var(--lh-tight);
-  font-weight: 700;
+/* Headline Mixins */
+@mixin h-large {
+	font-size: var(--size-h-lg);
+	line-height: var(--lh-tight);
+	font-weight: 700;
 }
 
-h2,
-.h-regular {
-  font-size: var(--size-h-reg);
-  line-height: var(--lh-tight);
-  font-weight: 700;
+@mixin h-regular {
+	font-size: var(--size-h-reg);
+	line-height: var(--lh-tight);
+	font-weight: 700;
 }
 
-h3,
-.h-small {
-  font-size: var(--size-h-sm);
-  line-height: var(--lh-tight);
-  font-weight: 700;
+@mixin h-small {
+	font-size: var(--size-h-sm);
+	line-height: var(--lh-tight);
+	font-weight: 700;
 }
 
-/* Body Styles */
-.body-large {
-  font-size: var(--size-b-lg);
-  line-height: var(--lh-loose);
+/* Body Mixins */
+@mixin body-large {
+	font-size: var(--size-b-lg);
+	line-height: var(--lh-loose);
 }
 
-.body-regular {
-  font-size: var(--size-b-reg);
-  line-height: var(--lh-normal);
+@mixin body-regular {
+	font-size: var(--size-b-reg);
+	line-height: var(--lh-normal);
 }
 
-.body-small {
-  font-size: var(--size-b-sm);
-  line-height: var(--lh-normal);
-  opacity: 0.8;
+@mixin body-small {
+	font-size: var(--size-b-sm);
+	line-height: var(--lh-normal);
+	opacity: 0.8;
 }
 
-/* Label Styles */
-.label-large {
-  font-size: var(--size-l-lg);
-  font-weight: 700;
+/* Label Mixins */
+@mixin label-large {
+	font-size: var(--size-l-lg);
+	font-weight: 700;
 }
 
-.label-regular {
-  font-size: var(--size-l-reg);
-  font-weight: 400;
+@mixin label-regular {
+	font-size: var(--size-l-reg);
+	font-weight: 400;
 }
 
-.label-small {
-  font-size: var(--size-l-sm);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+@mixin label-small {
+	font-size: var(--size-l-sm);
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+h1 {
+	@include h-large;
+	// If you want h1s to use the Blocky font by default, uncomment the line below:
+	// @include blocky-font;
+}
+
+h2 {
+	@include h-regular;
+}
+
+h3 {
+	@include h-small;
 }
