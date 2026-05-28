@@ -1,0 +1,66 @@
+@use "styles" as s;
+
+:host {
+	--bg-color: var(--clr-primary);
+	--text-color: var(--clr-on-primary);
+
+	padding: calc(var(--space-xs) - 2px) var(--space-md) var(--space-xs);
+	cursor: pointer;
+	outline: none;
+	border: var(--border-width) solid var(--clr-border);
+	box-shadow: 4px 4px 0 var(--clr-shadow);
+
+	background-color: var(--bg-color);
+	background-clip: padding-box;
+	color: var(--text-color);
+
+	transition:
+		background-color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+		color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+		border-color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+		scale 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+:host:has(> img) {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	gap: var(--space-xs);
+}
+
+:host:hover:not(:disabled) {
+	--text-color: var(--bg-color);
+	background-color: oklch(from var(--bg-color) l c h / 0.2);
+	// scale: 1.05;
+}
+
+:host[data-variant="accent"] {
+	--bg-color: var(--clr-tertiary);
+	--text-color: var(--clr-on-tertiary);
+}
+
+:host[data-variant="success"] {
+	--bg-color: var(--clr-success);
+	--text-color: var(--clr-on-success);
+}
+
+:host[data-variant="danger"] {
+	--bg-color: var(--clr-danger);
+}
+
+:host[data-variant="outline"] {
+	--bg-color: var(--text);
+	--text-color: var(--text);
+	background-color: transparent;
+	box-shadow: 0 0 0 1px var(--border);
+
+	&:hover {
+		border-color: transparent;
+	}
+}
+
+// :host:disabled {
+// 	filter: grayscale();
+// 	opacity: 0.25;
+// 	cursor: default;
+// }
