@@ -1,8 +1,19 @@
 <nav>
-	<h3>Mundijalac Kviz</h3>
+	<section class="logo-and-name">
+		<img src="png/world-cup.png" alt="World Cup" />
+		<app-name />
+	</section>
 	<ul>
-		<li><a [routerLink]="">Početna</a></li>
-		<li><a [routerLink]="">Popis Kvizova</a></li>
-		<li><a [routerLink]="">Leaderboard</a></li>
+		@for (route of headerRoutes; track $index) {
+			<li>
+				<a
+					[routerLink]="route.path"
+					routerLinkActive="active"
+					[routerLinkActiveOptions]="{ exact: true }"
+				>
+					{{ route.title }}
+				</a>
+			</li>
+		}
 	</ul>
 </nav>

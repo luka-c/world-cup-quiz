@@ -2,7 +2,7 @@
 
 :host {
 	display: block;
-	border-bottom: 1px solid var(--clr-border);
+	border-bottom: var(--border-width) solid var(--clr-border);
 }
 
 nav {
@@ -12,11 +12,45 @@ nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding: var(--space-sm) var(--space-md);
+	padding-left: var(--space-xs);
+}
+
+section.logo-and-name {
+	display: flex;
+	align-items: center;
+	gap: var(--space-xs);
+
+	img {
+		height: 3rem;
+	}
 }
 
 nav > ul {
 	list-style: none;
+	padding: 0;
 	display: flex;
 	align-items: center;
-	gap: var(--space-xs);
+	gap: var(--space-sm);
+}
+
+a {
+	text-transform: uppercase;
+	font-weight: bold;
+	text-decoration-thickness: 0px;
+	color: var(--clr-muted);
+	transition: color 300ms ease;
+
+	&:hover {
+		color: var(--clr-primary);
+	}
+
+	&.active {
+		color: var(--clr-primary);
+		text-decoration-thickness: var(--border-width);
+
+		&:hover {
+			color: var(--clr-muted);
+		}
+	}
 }
