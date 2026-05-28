@@ -1,0 +1,6 @@
+@use "styles" as s;
+
+span.logo {
+	@include s.blocky-font;
+	font-size: large;
+}
