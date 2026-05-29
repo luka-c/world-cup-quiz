@@ -29,9 +29,38 @@ section.logo-and-name {
 nav > ul {
 	list-style: none;
 	padding: 0;
+
 	display: flex;
 	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 	gap: var(--space-sm);
+
+	position: fixed;
+	inset: 0;
+	translate: 100vw 0;
+	background-color: var(--clr-background);
+	transition: translate 150ms cubic-bezier(0.4, 0, 0.2, 1);
+
+	&.open {
+		translate: 0 0;
+	}
+
+	@include s.small {
+		position: static;
+		flex-direction: row;
+		translate: 0 0;
+	}
+}
+
+ul > button {
+	@include s.button-bold;
+	margin-top: var(--space-md);
+
+	@include s.small {
+		margin-top: 0;
+		margin-left: var(--space-md);
+	}
 }
 
 a {
@@ -43,6 +72,7 @@ a {
 
 	&:hover {
 		color: var(--clr-primary);
+		text-decoration-thickness: var(--border-width);
 	}
 
 	&.active {
@@ -53,4 +83,20 @@ a {
 			color: var(--clr-muted);
 		}
 	}
+}
+
+img.menu,
+img.close {
+	height: 2rem;
+	cursor: pointer;
+
+	@include s.small {
+		display: none;
+	}
+}
+
+img.close {
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
 }

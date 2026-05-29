@@ -3,7 +3,8 @@
 :host {
 	display: block;
 	border-top: var(--border-width) solid var(--clr-border);
-	background-color: var(--clr-secondary-100);
+	background-color: var(--clr-primary-900);
+	color: var(--clr-on-primary);
 }
 
 footer {
@@ -53,13 +54,14 @@ ul {
 a {
 	text-transform: uppercase;
 	font-weight: bold;
-	text-decoration-thickness: 0px;
+	text-decoration-inset: 999px;
 	color: var(--clr-muted);
 	transition: color 300ms ease;
 	max-width: 40ch;
 	text-wrap: balance;
 
 	&:hover {
-		color: var(--clr-primary);
+		color: var(--clr-on-primary);
+		text-decoration-inset: 0px;
 	}
 }

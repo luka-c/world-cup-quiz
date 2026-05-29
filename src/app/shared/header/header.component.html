@@ -3,7 +3,7 @@
 		<img src="png/world-cup.png" alt="World Cup" />
 		<app-name />
 	</section>
-	<ul>
+	<ul [class.open]="isMenuOpened()">
 		@for (route of headerRoutes; track $index) {
 			<li>
 				<a
@@ -15,5 +15,20 @@
 				</a>
 			</li>
 		}
+		<button appBtn variant="primary">Log In</button>
+
+		<img
+			class="close"
+			src="svg/ic-close.svg"
+			alt="Close"
+			(click)="toggleMobileMenu(false)"
+		/>
 	</ul>
+
+	<img
+		class="menu"
+		src="svg/ic-menu.svg"
+		alt="Menu"
+		(click)="toggleMobileMenu(true)"
+	/>
 </nav>

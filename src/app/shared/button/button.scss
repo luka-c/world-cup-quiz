@@ -8,7 +8,7 @@
 	cursor: pointer;
 	outline: none;
 	border: var(--border-width) solid var(--clr-border);
-	box-shadow: 4px 4px 0 var(--clr-shadow);
+	@include s.shadow;
 
 	background-color: var(--bg-color);
 	background-clip: padding-box;
@@ -18,7 +18,7 @@
 		background-color 150ms cubic-bezier(0.4, 0, 0.2, 1),
 		color 150ms cubic-bezier(0.4, 0, 0.2, 1),
 		border-color 150ms cubic-bezier(0.4, 0, 0.2, 1),
-		scale 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+		box-shadow 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 :host:has(> img) {
@@ -29,9 +29,9 @@
 }
 
 :host:hover:not(:disabled) {
-	--text-color: var(--bg-color);
-	background-color: oklch(from var(--bg-color) l c h / 0.2);
-	// scale: 1.05;
+	@include s.no-shadow;
+	// --text-color: var(--bg-color);
+	// background-color: oklch(from var(--bg-color) l c h / 0.2);
 }
 
 :host[data-variant="accent"] {
@@ -52,11 +52,6 @@
 	--bg-color: var(--text);
 	--text-color: var(--text);
 	background-color: transparent;
-	box-shadow: 0 0 0 1px var(--border);
-
-	&:hover {
-		border-color: transparent;
-	}
 }
 
 // :host:disabled {

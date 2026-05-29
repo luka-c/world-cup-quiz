@@ -1,3 +1,5 @@
+@use "./variables.scss" as v;
+
 @font-face {
 	font-family: "BricolageGrotesque";
 	src: url(/fonts/BricolageGrotesque.ttf) format("truetype");
@@ -10,7 +12,7 @@
 	font-family: "BricolageGrotesque", sans-serif;
 	font-style: normal;
 	font-weight: 400;
-	font-size: 1rem;
+	font-size: var(--size-b-reg);
 	line-height: 1.21;
 }
 
@@ -27,22 +29,36 @@
 
 :root {
 	/* Font Sizes */
-	--size-h-lg: 2.5rem;
-	--size-h-reg: 2rem;
-	--size-h-sm: 1.5rem;
+	--size-h-lg: 3rem;
+	--size-h-reg: 2.35rem;
+	--size-h-sm: 1.75rem;
 
-	--size-b-lg: 1.125rem;
-	--size-b-reg: 1rem;
-	--size-b-sm: 0.875rem;
+	--size-b-lg: 1.25rem;
+	--size-b-reg: 1.125rem;
+	--size-b-sm: 1rem;
 
-	--size-l-lg: 0.875rem;
-	--size-l-reg: 0.75rem;
-	--size-l-sm: 0.6875rem;
+	--size-l-lg: 1rem;
+	--size-l-reg: 0.875rem;
+	--size-l-sm: 0.75rem;
 
 	/* Line Heights */
 	--lh-tight: 1.2;
 	--lh-normal: 1.5;
 	--lh-loose: 1.6;
+
+	@include v.small {
+		--size-h-lg: 2.5rem;
+		--size-h-reg: 2rem;
+		--size-h-sm: 1.5rem;
+
+		--size-b-lg: 1.125rem;
+		--size-b-reg: 1rem;
+		--size-b-sm: 0.875rem;
+
+		--size-l-lg: 0.875rem;
+		--size-l-reg: 0.75rem;
+		--size-l-sm: 0.6875rem;
+	}
 }
 
 body {
@@ -105,8 +121,6 @@ body {
 
 h1 {
 	@include h-large;
-	// If you want h1s to use the Blocky font by default, uncomment the line below:
-	// @include blocky-font;
 }
 
 h2 {
